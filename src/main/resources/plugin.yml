@@ -1,0 +1,8 @@
+name: JpChatCustomization
+version: '1.0'
+main: io.github.jpmillz.jpChatCustomization.JpChatCustomization
+api-version: '1.21'
+commands:
+  JpRanks:
+    description: "A plugin for Ranks"
+    usage: /<command>
