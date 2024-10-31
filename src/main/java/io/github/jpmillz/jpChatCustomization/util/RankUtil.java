@@ -18,17 +18,11 @@ public class RankUtil {
     public static void loadRanks() {
         try {
             Gson gson = new Gson();
-            if (!jsonFile.exists()) {
-                jsonFile.getParentFile().mkdir();
-                jsonFile.createNewFile();
-            }
-            Reader reader = new FileReader(jsonFile);
-            if (gson.fromJson(reader, new TypeToken<List<Rank>>(){}.getType()) == null){
-                return;
-            }else{
+            if (jsonFile.exists()) {
+                Reader reader = new FileReader(jsonFile);
                 ranks = gson.fromJson(reader, new TypeToken<List<Rank>>(){}.getType());
+                System.out.println("Ranks have been loaded!");
             }
-            System.out.println("Ranks have been loaded!");
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -74,8 +68,11 @@ public class RankUtil {
     public static void saveRanks() {
         try {
             Gson gson = new Gson();
-            FileWriter writer = new FileWriter(jsonFile);
+            jsonFile.getParentFile().mkdir();
+            jsonFile.createNewFile();
+            FileWriter writer = new FileWriter(jsonFile, false);
             gson.toJson(ranks, writer);
+            writer.flush();
             writer.close();
             System.out.println("Saved Ranks");
         } catch (IOException e) {

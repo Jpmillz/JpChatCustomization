@@ -18,7 +18,6 @@ public final class JpChatCustomization extends JavaPlugin {
         // Plugin startup logic
         plugin = this;
         RankUtil.loadRanks();
-        RankUtil.createRank("Default", "[Default]");
         getServer().getPluginManager().registerEvents(new PlayerEvents(), this);
         getCommand("JpRanks").setExecutor(new RankCommand());
         getCommand("JpRanks").setTabCompleter(new RankCommandTabCompleter());

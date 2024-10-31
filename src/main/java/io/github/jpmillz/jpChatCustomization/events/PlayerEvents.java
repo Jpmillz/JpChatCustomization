@@ -10,11 +10,6 @@ public class PlayerEvents implements Listener {
 
     @EventHandler
     public void playerJoin(PlayerJoinEvent event){
-        String playerUUID = event.getPlayer().getUniqueId().toString();
-        if (RankUtil.getPlayerRank(playerUUID) == null){
-            RankUtil.assignRank(playerUUID, "default");
-        }else{
-            RankUtil.assignRank(playerUUID, RankUtil.getPlayerRank(playerUUID).name().toLowerCase().trim());
-        }
+
     }
 }
