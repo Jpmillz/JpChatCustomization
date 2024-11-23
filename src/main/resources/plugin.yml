@@ -5,4 +5,3 @@ api-version: '1.21'
 commands:
   JpRanks:
     description: "A plugin for Ranks"
-    usage: /<command>

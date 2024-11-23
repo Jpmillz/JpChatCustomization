@@ -2,11 +2,12 @@ package io.github.jpmillz.jpChatCustomization;
 
 import io.github.jpmillz.jpChatCustomization.commands.RankCommand;
 import io.github.jpmillz.jpChatCustomization.commands.RankCommandTabCompleter;
-import io.github.jpmillz.jpChatCustomization.events.PlayerEvents;
+import io.github.jpmillz.jpChatCustomization.listeners.ChatListener;
 import io.github.jpmillz.jpChatCustomization.util.RankUtil;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public final class JpChatCustomization extends JavaPlugin {
+
     private static JpChatCustomization plugin;
 
     public static JpChatCustomization getPlugin(){
@@ -18,7 +19,7 @@ public final class JpChatCustomization extends JavaPlugin {
         // Plugin startup logic
         plugin = this;
         RankUtil.loadRanks();
-        getServer().getPluginManager().registerEvents(new PlayerEvents(), this);
+        getServer().getPluginManager().registerEvents(ChatListener.getInstance(), this);
         getCommand("JpRanks").setExecutor(new RankCommand());
         getCommand("JpRanks").setTabCompleter(new RankCommandTabCompleter());
     }

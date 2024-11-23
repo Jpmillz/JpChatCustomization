@@ -13,7 +13,7 @@ public record Rank(String name, String identifier, List<String> playerUUIDs) {
             return false;
         }
         Rank cast = (Rank) obj;
-        if (this.name.equals(cast.name())){
+        if (this.name.equalsIgnoreCase(cast.name())){
             return true;
         }
         return false;
